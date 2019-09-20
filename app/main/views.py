@@ -2,7 +2,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from ..models import Review, User
 from . import main
-from ..request import get_movies,get_movie,search_movie
+from ..request import get_movies,get_movie
 from flask_login import login_required, current_user
 from .forms import ReviewForm,UpdateProfile
 from .. import db,photos
@@ -25,11 +25,8 @@ def index():
     title = 'Home - Welcome to The best Movie Review Website Online'
 
     search_movie = request.args.get('movie_query')
-
-    if search_movie:
-        return redirect(url_for('.search',movie_name=search_movie))
-    else:
-        return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
+   
+    return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_showing = now_showing_movie )
 
 
 @main.route('/movie/<int:id>')
@@ -84,17 +81,6 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
-@main.route('/search/<movie_name>')
-def search(movie_name):
-    '''
-    View function to display the search results
-    '''
-    movie_name_list = movie_name.split(" ")
-    movie_name_format = "+".join(movie_name_list)
-    searched_movies = search_movie(movie_name_format)
-    title = f'search results for {movie_name}'
-    return render_template('search.html',movies = searched_movies)
-    
 @main.route('/reviews/<int:id>')
 def movie_reviews(id):
    movie = get_movie(id)

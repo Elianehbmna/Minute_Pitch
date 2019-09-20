@@ -5,7 +5,7 @@ class Config:
     MOVIE_API_BASE_URL ='https://api.themoviedb.org/3/movie/{}?api_key={}'
     MOVIE_API_KEY = os.environ.get('MOVIE_API_KEY')
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:Greece13@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:maman@localhost/pitch'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -21,10 +21,10 @@ class ProdConfig(Config):
 
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:Greece13@localhost/watchlist_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:maman@localhost/watchlist_test'
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:Greece13@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://wecode:maman@localhost/pitch'
     DEBUG = True
 
 config_options = {
