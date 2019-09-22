@@ -30,7 +30,6 @@ def index():
 @login_required
 def new_pitch():
     form = PitchForm()
-    # my_upvotes = Upvote.query.filter_by(pitch_id = Pitch.id)
     if form.validate_on_submit():
         title = form.title.data
         description = form.description.data
