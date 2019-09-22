@@ -6,38 +6,6 @@ from datetime import datetime
 
 
 
-# class Movie:
-#     '''
-#     Movie class to define Movie Objects
-#     '''
-
-#     def __init__(self,id,title,overview,poster,vote_average,vote_count):
-#         self.id =id
-#         self.title = title
-#         self.overview = overview
-#         self.poster = "https://image.tmdb.org/t/p/w500/" + poster
-#         self.vote_average = vote_average
-#         self.vote_count = vote_count
-
-
-
-# class Review(db.Model):
-#    __tablename__ = 'reviews'
-#    id = db.Column(db.Integer,primary_key = True)
-#    movie_id = db.Column(db.Integer)
-#    movie_title = db.Column(db.String)
-#    image_path = db.Column(db.String)
-#    movie_review = db.Column(db.String)
-#    posted = db.Column(db.Time,default=datetime.utcnow())
-#    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-#    def save_review(self):
-#        db.session.add(self)
-#        db.session.commit()
-#    @classmethod
-#    def get_reviews(cls,id):
-#        reviews = Review.query.filter_by(movie_id=id).all()
-#        return reviews
-
 
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
@@ -54,7 +22,7 @@ class User(UserMixin,db.Model):
     upvotes = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
     downvotes = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
 
-    # reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
+    
     @login_manager.user_loader
     def load_user(user_id):
         return User.query.get(int(user_id))
@@ -82,8 +50,6 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
     description = db.Column(db.String(), index = True)
     title = db.Column(db.String())
-    # downvotes = db.Column(db.Integer, default=int(0))
-    # upvotes = db.Column(db.Integer, default=int(0))
     category = db.Column(db.String(255), nullable=False)
     comments = db.relationship('Comment',backref='pitch',lazy='dynamic')
     upvotes = db.relationship('Upvote', backref = 'pitch', lazy = 'dynamic')
