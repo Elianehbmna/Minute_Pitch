@@ -26,17 +26,18 @@
 		{% for category in category_list %}
 		<div class="col-md-6">
 			<div class="thumbnail text-center">
-			<h5 class="card-header">{{category.title}}</h5>
-			<h5 class="card-header">{{category.category}}</h5>
-			<div class="card-body">
-				<blockquote class="blockquote mb-0">
+			<div class="card">
+				<p>
 					<h2>{{category.description}}</h2>
+					<cite class="blockquote-footer"> Posted by {{category.user.username}}</cite>
 				
-				</blockquote>
+				</p>
         
-        <a href="{{url_for('main.new_comment',pitch_id = category.id)}}" class="btn btn-info"> Add a comment</a>
-				<a href="{{url_for('main.upvote',pitch_id = category.id)}}" class= "btn btn-primary btn-sm"><i></i>Upvote <span>{{category.upvotes.count()}}</span></a>
-				<a href="{{url_for('main.downvote',pitch_id = category.id)}}" class= "btn btn-danger btn-sm"><i class="far fa-thumbs-up"></i>Downvote <span>{{category.downvotes.count()}}</span></a>
+				<a href="{{url_for('main.new_comment',pitch_id = category.id)}}" class="glyphicon glyphicon-comment" style="margin:10px;"></a> 
+				
+				<a href="{{url_for('main.upvote',pitch_id = category.id)}}" class="glyphicon glyphicon-thumbs-up" style="margin:10px;" ><i></i><span>{{category.upvotes.count()}}</span></a>
+
+				<a href="{{url_for('main.downvote',pitch_id = category.id)}}" class= "glyphicon glyphicon-thumbs-down" style="margin:10px;"><i></i><span>{{category.downvotes.count()}}</span></a>
 
 			</div>
 		</div>
@@ -53,14 +54,16 @@
 
 			{% if comments %}
 			{% for comment in comments %}
-				<div class="row text-center">
-						<a><p style="color: brown">{{ comment.description }}</p></a>
+			<div class="thumbnail text-center">
+					<div class="card">
+						<a><p>{{ comment.description }}</p></a>
 						<small> posted by {{comment.user.username}}</small>
+				</div>
 				</div>
 			{% endfor %}
 			{% else %}
 
-			<h3>This post does  not does not have any comments yet !</h3>
+			<cite  style="text-align: center;">This post does  not does not have any comments yet !</cite>
 			{%endif%}
 
 	</ul>

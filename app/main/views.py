@@ -17,13 +17,13 @@ def index():
     View root page function that returns the index page and its data
     '''
     pitch = Pitch.query.filter_by().first()
-    title = 'Home'
-    pickuplines = Pitch.query.filter_by(category="pickuplines")
-    interviewpitch = Pitch.query.filter_by(category = "interviewpitch")
-    promotionpitch = Pitch.query.filter_by(category = "promotionpitch")
-    productpitch = Pitch.query.filter_by(category = "productpitch")
+    title = 'Welcome Home-Minute Pitch'
+    Educational = Pitch.query.filter_by(category="Educational")
+    Musical = Pitch.query.filter_by(category = "Musical")
+    Religion = Pitch.query.filter_by(category = "Religion")
+    Comedy = Pitch.query.filter_by(category = "Comedy")
 
-    return render_template('home.html', title = title, pitch = pitch, pickuplines=pickuplines, interviewpitch= interviewpitch, promotionpitch = promotionpitch, productpitch = productpitch)
+    return render_template('index.html', title = title, pitch = pitch, Educational=Educational, Musical= Musical, Religion = Religion, Comedy = Comedy)
 
 # @main.route('/movie/<int:id>')
 # def movie(id):

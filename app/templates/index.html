@@ -1,0 +1,53 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'macros.html' as macro %}
+{% block navbar %}
+{% include 'navbar.html'%}
+{% endblock %}
+
+  {% block content %}
+  
+    <!-- <a style="text-align: center; color: whitesmoke;" class="navbar-brand" href="/pitches/new/"> Post a Pitch </a> -->
+    
+
+    </ul>
+    <div class="container">
+            <div class="jumbotron jumbotron-fluid">
+      <h2 style="color: #f8a978;text-align: center" class="display-4">Welcome to our page,</h2>
+      <p style="color: #979797;text-align: center" class="lead">you have to post a one minute pitch please feel free to post in any category of your choice</p>
+      <h4 style="color: #979797;text-align: center" ><a  href="/pitches/new/"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>   Add Your pitch </a></h4>
+      </div>
+      <br>
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#Educational">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#Musical">Musical</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#Religion">Religion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#Comedy">Comedy</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="Educational" class="container tab-pane active"><br>
+          {{ macro.display(Educational) }}
+          
+        </div>
+        <div id="Musical" class="container tab-pane fade"><br>
+          {{ macro.display(Musical) }}
+        </div>
+        <div id="Religion" class="container tab-pane fade"><br>
+          {{ macro.display(Religion)}}
+        </div>
+        <div id="Comedy" class="container tab-pane fade"><br>
+          {{ macro.display(Comedy) }}
+        </div>
+        
+      </div>
+    </div>
+  </body>
+  {% endblock %}
