@@ -132,35 +132,3 @@ def downvote(pitch_id):
 
 
 
-# @main.route('/reviews/<int:id>')
-# def movie_reviews(id):
-#    movie = get_movie(id)
-#    reviews = Review.get_reviews(id)
-#    title = f'All reviews for {movie.title}'
-#    return render_template('movie_reviews.html',title = title,reviews=reviews)
-
-# @main.route('/review/<int:id>')
-# def single_review(id):
-#     review=Review.query.get(id)
-#     if review is None:
-#         abort(404)
-#     format_review = markdown2.markdown(review.movie_review,extras=["code-friendly", "fenced-code-blocks"])
-#     return render_template('review.html',review = review,format_review=format_review)
-# @main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
-# @login_required
-# def new_review(id):
-#     form = ReviewForm()
-#     movie = get_movie(id)
-#     if form.validate_on_submit():
-#         title = form.title.data
-#         review = form.review.data
-
-#         # Updated review instance
-#         new_review = Review(movie_id=movie.id,movie_title=title,image_path=movie.poster,movie_review=review,user=current_user)
-
-#         # save review method
-#         new_review.save_review()
-#         return redirect(url_for('.movie',id = movie.id ))
-
-#     title = f'{movie.title} review'
-#     return render_template('new_review.html',title = title, review_form=form, movie=movie)
