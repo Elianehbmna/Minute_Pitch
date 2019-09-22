@@ -20,16 +20,16 @@ an application that allows users to use that one minute wisely. The users will s
  
 
 ## Dependencies
-Click==7.0
-Flask==1.1.1
-Flask-SimpleMDE==0.3.0
-itsdangerous==1.1.0
-Jinja2==2.10.1
-markdown2==2.3.8
-MarkupSafe==1.1.1
-pkg-resources==0.0.0
-psycopg2==2.8.3
-Werkzeug==0.15.6
+* Click==7.0
+* Flask==1.1.1
+* Flask-SimpleMDE==0.3.0
+* itsdangerous==1.1.0
+* Jinja2==2.10.1
+* markdown2==2.3.8
+* MarkupSafe==1.1.1
+* pkg-resources==0.0.0
+* psycopg2==2.8.3
+* Werkzeug==0.15.6
 
 
 ## Technical Requirements
