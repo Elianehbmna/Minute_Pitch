@@ -25,17 +25,7 @@ def index():
 
     return render_template('index.html', title = title, pitch = pitch, Educational=Educational, Musical= Musical, Religion = Religion, Comedy = Comedy)
 
-# @main.route('/movie/<int:id>')
-# def movie(id):
 
-#     '''
-#     View movie page function that returns the movie details page and its data
-#     '''
-#     movie = get_movie(id)
-#     title = f'{movie.title}'
-#     reviews = Review.get_reviews(movie.id)
-
-#     return render_template('movie.html',title = title,movie = movie,reviews = reviews)
 @main.route('/pitches/new/', methods = ['GET','POST'])
 @login_required
 def new_pitch():
