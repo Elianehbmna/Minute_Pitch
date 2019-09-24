@@ -1,8 +1,8 @@
 # Application name
 
- Minute-pitch
+ ## Minute-pitch
 
-##Description
+# Description
 an application that allows users to use that one minute wisely. The users will submit their one minute pitches and other users will vote on them and leave comments to give their feedback on them.
 ## Link to Live Site 
 
@@ -20,16 +20,21 @@ an application that allows users to use that one minute wisely. The users will s
  
 
 ## Dependencies
-Click==7.0
-Flask==1.1.1
-Flask-SimpleMDE==0.3.0
-itsdangerous==1.1.0
-Jinja2==2.10.1
-markdown2==2.3.8
-MarkupSafe==1.1.1
-pkg-resources==0.0.0
-psycopg2==2.8.3
-Werkzeug==0.15.6
+* Click==7.0
+* dominate==2.4.0
+* Flask==1.1.1
+* Flask-Bootstrap==3.3.7.1
+* Flask-SimpleMDE==0.3.0
+* Flask-SQLAlchemy==2.4.0
+* itsdangerous==1.1.0
+* Jinja2==2.10.1
+* markdown2==2.3.8
+* MarkupSafe==1.1.1
+* pkg-resources==0.0.0
+* psycopg2==2.8.3
+* SQLAlchemy==1.3.8
+* visitor==0.1.3
+* Werkzeug==0.15.6
 
 
 ## Technical Requirements
